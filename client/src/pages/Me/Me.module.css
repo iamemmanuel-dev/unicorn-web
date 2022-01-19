@@ -1,0 +1,260 @@
+#aside {
+  background: var(--main_dark_light);
+  padding: 2rem;
+  color: var(--main_white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100vh;
+}
+
+#main {
+  position: relative;
+  top: 0;
+  left: 21%;
+  width: calc(100% - 21%);
+}
+
+.aside_top {
+  font-size: 1.6rem;
+  margin-bottom: 3rem;
+}
+
+.aside_top svg {
+  margin-right: 1.5rem;
+  color: var(--main_blue);
+}
+
+.aside_bottom_title {
+  font-size: 1.56rem;
+  color: var(--main_grey);
+  margin-bottom: 1rem;
+}
+
+.aside_bottom li {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: var(--primary_font);
+}
+
+.aside_bottom li:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.aside_bottom svg {
+  margin-right: 0.5rem;
+  color: var(--main_grey);
+}
+
+#main {
+  background: var(--main_dark_light);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 7rem auto;
+  color: var(--main_white);
+}
+
+.mainTop {
+  padding-left: 2rem;
+  border-bottom: 1px solid var(--main_grey);
+}
+
+.mainTop h2 {
+  display: inline-block;
+  font-size: 2rem;
+  background: linear-gradient(to right, var(--main_pink) 0%, rebeccapurple 50%);
+  background-clip: text;
+  color: transparent;
+}
+
+.mainContent {
+  padding: 1.5rem;
+}
+
+.userProfileCoverImage {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 30rem;
+  position: relative;
+}
+
+.userProfileImageContainer {
+  position: absolute;
+  bottom: -10%;
+  left: 5%;
+}
+
+.userProfileImageContainer_image {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  outline: 3px solid var(--main_pink);
+  border-radius: 50%;
+  outline-offset: 3px;
+}
+
+.editProfileLink {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  font-size: 1.6rem;
+  color: var(--main_white);
+  background: linear-gradient(to right, var(--main_pink) 0%, rebeccapurple 50%);
+  padding: 0.25rem 0.67rem;
+}
+
+.userProfile_Detail {
+  margin-left: 2rem;
+  margin-top: -15%;
+}
+
+.userProfile_Detail_name {
+  font-size: 2rem;
+  line-height: 1.7;
+}
+.userProfile_Detail_job {
+  display: inline-block;
+  font-size: 1.3rem;
+  color: var(--main_grey);
+  text-transform: uppercase;
+  font-weight: bolder;
+  background: linear-gradient(to right, var(--main_pink) 0%, rebeccapurple 50%);
+  background-clip: text;
+  color: transparent;
+}
+
+.mainContent_row {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  column-gap: 2.5rem;
+  grid-auto-rows: 100%;
+  position: relative;
+}
+
+.mainContentCol_Left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+}
+
+.mainContentCol_Right {
+  position: sticky;
+}
+
+.mainContentCol_Left_box {
+  width: 100%;
+  margin: 0 auto 1.5rem;
+  background: var(--main_dark);
+  height: 20rem;
+  padding: 1.25rem;
+}
+
+.mainContentLeft_title {
+  font-size: 1.7rem;
+  display: inline-block;
+  background: var(--main_dark_light);
+  background: rgba(14, 14, 14, 0.911);
+  background: #000;
+  padding: 0.35rem 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--primary_font);
+}
+
+.mainContentLeft_paragraph {
+  font-size: 1.4rem;
+  color: #ddd;
+}
+
+.mainContentCol_Left_box ul {
+  margin-top: 1rem;
+}
+
+.mainContentCol_Left_box li {
+  font-size: 1.4rem;
+  padding-bottom: 1rem;
+}
+
+.mainContentCol_Left_box svg {
+  margin-right: 0.5rem;
+  color: var(--main_blue);
+}
+
+.mainContentCol_Center {
+  background: var(--main_dark);
+  padding: 1rem;
+}
+
+.postDisplay {
+  background: var(--main_dark_light);
+  color: var(--main_white);
+  margin-bottom: 2rem;
+}
+
+.postDisplay_header {
+  padding: 1rem;
+}
+
+.postDisplay_body {
+  margin-top: 1rem;
+  padding: 0 4rem;
+}
+
+.postDisplay_info {
+  margin-left: 1rem;
+}
+
+.postAuthor {
+  font: 800 1.6rem var(--secondary_font);
+  color: var(--main_white);
+  display: block;
+  line-height: 1;
+}
+
+.postDisplay_info small {
+  font-size: 1.2rem;
+  color: #777;
+}
+
+.post_desc {
+  font: 500 1.46rem var(--primary_font);
+  line-height: 1.4;
+}
+
+.postDisplay .postDisplay_header_img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  align-self: start;
+}
+
+.postDisplay_body_postResource {
+  width: 100%;
+  border-radius: 2rem 0 2rem 0;
+}
+
+.postDisplay_body_footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.postDisplay_body_footer_rxnsContainer svg {
+  font-size: 1.56rem;
+  margin-right: 1rem;
+  color: silver;
+}
+
+.postDisplay_body_footer_rxnsContainer p {
+  font-size: 1.5rem;
+  color: #ccc;
+}
+
+.mainContentCol_Right {
+  background: var(--main_dark);
+}

@@ -1,0 +1,107 @@
+#aside_left {
+  position: fixed;
+  top: 7rem;
+  left: 0;
+  width: 30%;
+  width: 25%;
+  overflow-y: hidden;
+}
+
+#aside_left:hover {
+  overflow-y: scroll;
+}
+
+.aside_left_content {
+  padding: 4rem;
+  color: var(--main_white);
+}
+
+.searchbar {
+  border: none;
+  outline: none;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 1.56rem;
+  background: var(--main_dark_light);
+  color: var(--main_white);
+}
+
+.aside_left_content_UL {
+  margin: 3rem 0;
+}
+
+.title {
+  font: 400 1.7rem var(--primary_font);
+  margin-bottom: 2rem;
+}
+
+.followingList {
+  justify-content: space-between;
+}
+
+.nicheBadge {
+  padding: 0.2rem 0.5rem;
+  background: purple;
+  color: var(--main_white);
+  border-radius: 1rem;
+  font-size: 1.35rem;
+}
+
+.followingList:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.followingList_imgContainer {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 10rem;
+  position: relative;
+  margin-right: 1.5rem;
+}
+
+.followingList img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rem;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  right: -2%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgb(0, 199, 0);
+}
+
+.followingList_name {
+  font-size: 1.6rem;
+  color: var(--main_white);
+}
+
+.offline .badge {
+  background: var(--main_grey);
+}
+
+.offline .followingList_name {
+  color: var(--main_grey);
+}
+
+@media screen and (max-width: 1030px) {
+  #aside_left {
+    left: 0;
+    width: 30%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #aside_left {
+    left: 0;
+    width: 30%;
+  }
+}
+@media screen and (max-width: 600px) {
+  #aside_left {
+    display: none;
+  }
+}

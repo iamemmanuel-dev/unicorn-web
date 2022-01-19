@@ -1,0 +1,57 @@
+.profileCard {
+  margin-bottom: 4rem;
+}
+
+.profileImage {
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  border-radius: 50%;
+  outline: 3px solid var(--main_pink);
+  outline-offset: 1rem;
+  margin-bottom: 2rem;
+}
+
+#center small {
+  font-size: 1.35rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.col {
+  background: var(--main_dark_light);
+  padding: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  width: 10rem;
+}
+
+.col svg {
+  border: 2px solid var(--main_dark);
+  font-size: 2rem;
+  border-radius: 50%;
+  background: var(--main_dark);
+  color: var(--main_grey);
+}
+
+.col h2 {
+  font: 100 2rem var(--primary_font);
+}
+
+#profileCard_edit a {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: var(--main_grey);
+  margin-top: 1.5rem;
+  transition: var(--transition);
+}
+
+#profileCard_edit a:hover {
+  color: var(--main_white);
+}

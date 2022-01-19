@@ -1,0 +1,124 @@
+#aside_right {
+  position: fixed;
+  top: 7rem;
+  right: 0;
+  width: 30%;
+  overflow: hidden;
+}
+
+#aside_right:hover {
+  overflow-y: scroll;
+}
+
+.aside_right_content {
+  padding: 4rem;
+}
+
+.aside_right_profileCard {
+  width: 25rem;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.aside_right_content_top {
+  height: 20rem;
+}
+
+.aside_right_content_top img {
+  object-fit: cover;
+}
+
+.aside_right_content_bottom {
+  position: relative;
+  z-index: 2;
+  background: var(--main_white);
+  background: #fff;
+  border-radius: 2rem 2rem 0 0;
+  margin-top: -2rem;
+}
+
+.aside_right_content_bottom_content {
+  padding: 2rem 1rem;
+}
+
+.aside_right_content_bottom_head p {
+  font-size: 1.34rem;
+  color: var(--main_pink);
+  font-weight: bolder;
+  line-height: 0.5;
+}
+
+.aside_right_content_bottom_head h3 {
+  font-size: 2.3rem;
+  line-height: 1.5;
+  color: rgb(0, 2, 59);
+}
+
+.aside_right_content_bottom_followersCountContainer {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.aside_right_content_bottom_imgContainer > img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 2px solid var(--main_blue);
+  object-fit: cover;
+  position: relative;
+}
+
+.aside_right_content_bottom_imgContainer > img:nth-child(2) {
+  left: -8%;
+}
+.aside_right_content_bottom_imgContainer > img:nth-child(3) {
+  left: -14%;
+}
+.aside_right_content_bottom_imgContainer > img:nth-child(4) {
+  left: -20%;
+}
+
+.count h2 {
+  font: bolder 2.2rem var(--primary_font);
+  line-height: 1;
+  color: rgb(0, 2, 59);
+}
+
+.count h4 {
+  font: bolder 1.24rem var(--secondary_font);
+  color: rgb(0, 2, 59);
+}
+
+.aside_right_content_bottom_beneath {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+}
+
+.aside_right_content_bottom_beneath a {
+  color: rgb(0, 2, 59);
+  font-weight: bold;
+  font-family: var(--primary_font);
+  transition: var(--transition);
+}
+
+.aside_right_content_bottom_beneath svg {
+  margin-right: 0.5rem;
+}
+
+@media screen and (max-width: 1030px) {
+  #aside_right {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #aside_right {
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  #aside_right {
+    display: none;
+  }
+}

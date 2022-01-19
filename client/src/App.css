@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary_font: 'Noto Sans', sans-serif;
+  --secondary_font: 'Nunito', sans-serif;
+
+  --main_blue: #1da1f2;
+  --dark_blue: rgb(0, 2, 59);
+  --main_pink: #fc1ba0;
+  --main_dark: #18191a;
+  --main_dark_light: #242526;
+  --main_white: #eee;
+  --main_grey: #efefef7e;
+
+  --fixed_width: 90vw;
+  --max_width: 120rem;
+
+  --transition: all 0.3s linear;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: var(--main_dark);
+  font-family: var(--secondary_font);
+  color: var(--main_dark);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input,
+button {
+  font-family: var(--secondary_font);
+  border: none;
+  outline: none;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flex_wrap {
+  flex-wrap: wrap;
+}
+
+.grid {
+  display: grid;
+  place-items: center;
+}
+
+.cursor_this {
+  cursor: pointer;
+}
+
+.container {
+  width: var(--fixed_width);
+  max-width: var(--max_width);
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.leftbar_fixed {
+  position: fixed;
+  top: 7rem;
+  width: 25%;
+}
+.rightbar_fixed {
+  position: fixed;
+  top: 7rem;
+  right: 1%;
+  width: 20%;
+}
+
+.hide_behind {
+  transform: rotateY(-180deg) !important;
+  backface-visibility: hidden !important;
+}
+
+.show_infront {
+  transform: rotateY(0) !important;
+}
+
+.disable_button {
+  cursor: not-allowed !important;
+}
+
+.disable_button:hover {
+  /* background: #1c1c1dfa; */
+  /* color: var(--main_grey); */
+}
+
+/*
+CUSTOM SCROLL BAR
+*/
+::-webkit-scrollbar {
+  width: 12px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 15px #eee;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main_dark_light);
+  border-radius: 10px;
+}
