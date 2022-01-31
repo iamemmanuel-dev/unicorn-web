@@ -21,8 +21,11 @@ exports.getPost = catchAsync(async (req, res, next) => {
 })
 
 exports.createPost = catchAsync(async (req, res, next) => {
-  const Post = await PostsModel.create(req.body)
-  res.status(201).json({ status: 'success', Post })
+  console.log('REQ BODY', req.body)
+  console.log('REQ FILE', req.file)
+  console.log('REQ FILES', req.files)
+  // const Post = await PostsModel.create(req.body)
+  // res.status(201).json({ status: 'success', Post })
 })
 
 exports.updatePost = catchAsync(async (req, res, next) => {

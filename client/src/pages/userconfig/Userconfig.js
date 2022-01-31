@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { withRouter, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { FaArrowRight } from 'react-icons/fa'
 import U from './userconfig.module.css'
 import axios from 'axios'
-import { printOptions } from '../../Helpers'
+import { printOptions } from '../../Helpers/axiosHelper'
 
-const UserConfig = props => {
+const UserConfig = () => {
   const { id, username } = useParams()
   const [userconfig, setUserconfig] = useState({
     badge: {
@@ -49,7 +49,7 @@ const UserConfig = props => {
       )
 
       const { status } = res.data
-      status === 'success' && props.history.replace('/')
+      status === 'success' && window.location.replace('/')
     } catch (err) {
       setIsLoading(false)
       console.log(err)
@@ -142,4 +142,4 @@ const UserConfig = props => {
   )
 }
 
-export default withRouter(UserConfig)
+export default UserConfig

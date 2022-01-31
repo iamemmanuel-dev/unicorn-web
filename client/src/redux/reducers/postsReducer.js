@@ -15,7 +15,11 @@ const Posts = {
 }
 
 export const handlePostCreation = data => async dispatch => {
-  const res = await axios(printOptions('POST', '/api/posts', data))
+  try {
+    const res = await axios(printOptions('POST', '/api/posts', data))
+  } catch (err) {
+    console.log('error occured', err.message)
+  }
 }
 
 const reducer = (state = Posts, { type, payload, file }) => {

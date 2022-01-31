@@ -1,9 +1,8 @@
 import React from 'react'
-import { FaHome, FaRegBookmark, FaUsers } from 'react-icons/fa'
 import L from './leftbar.module.css'
 import Profilecard from './Profilecard'
 
-const Leftbar = () => (
+const Leftbar = ({ user }) => (
   <aside id={L.aside_left}>
     <div className={L.aside_left_content}>
       <Profilecard />

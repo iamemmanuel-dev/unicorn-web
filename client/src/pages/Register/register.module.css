@@ -27,7 +27,7 @@
 }
 
 .registrationContainer_right {
-  background: var(--main_white);
+  background: #fff;
   border: 1px solid #f7f7f7;
   border-radius: 1rem 0 0 1rem;
 }
@@ -60,7 +60,7 @@
   font-size: 1.78rem;
   display: block;
   padding-bottom: 0.56rem;
-  font-weight: bolder;
+  /* font-weight: bolder; */
 }
 
 .form_group input {

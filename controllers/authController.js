@@ -1,7 +1,7 @@
 const JWT = require('jsonwebtoken')
-const { promisify } = require('util')
 const AppErrorHandler = require('../errors/appErrorHandler')
 const catchAsync = require('../errors/catchAsync')
+const decodeToken = require('../helpers/decodeToken')
 const UsersModel = require('../models/UsersModel')
 
 const signedToken = _id =>
@@ -67,11 +67,18 @@ exports.login = catchAsync(async (req, res, next) => {
       new AppErrorHandler('please provide a username and password', 400)
     )
 
-  const User = await UsersModel.findOne({ username }).select('password')
+  const User = await UsersModel.findOne({ username }).select('+password')
   if (!User || !(await User.validatePassword(password, User.password)))
-    return next(new AppErrorHandler('Invalid username or password', 402))
+    return next(new AppErrorHandler('Invalid username or password', 403))
 
   createSendToken(User, res, 200)
+})
+
+exports.logout = catchAsync(async (req, res) => {
+  res.cookie('jwt', 'logging you out', {
+    expires: new Date(Date.now() + 5 * 1000),
+  })
+  res.redirect('/register')
 })
 
 exports.secureRouteToAuthUsers = catchAsync(async (req, res, next) => {
@@ -88,7 +95,8 @@ exports.secureRouteToAuthUsers = catchAsync(async (req, res, next) => {
       new AppErrorHandler('Please login to access this resource', 402)
     )
 
-  const decoded = await promisify(JWT.verify)(token, process.env.JWT_SECRET_KEY)
+  const decoded = await decodeToken(token)
+
   const User = await UsersModel.findById(decoded._id)
   if (!User)
     return next(
@@ -114,3 +122,13 @@ exports.restrictTo = badge =>
 
     next()
   })
+
+exports.getAuthState = catchAsync(async (req, res, next) => {
+  if (!req.cookies.jwt) return res.status(200).json({})
+
+  const { _id } = await decodeToken(req.cookies.jwt)
+  const User = await UsersModel.findById(_id)
+
+  if (!User) return res.status(200).json({ status: 'fail', User: '' })
+  res.status(200).json({ status: 'success', User })
+})

@@ -11,6 +11,7 @@ const UsersSchema = new mongoose.Schema(
     password: {
       type: String,
       minlength: [8, 'password cannot be less than 8 characters'],
+      select: false,
     },
     confirmedPassword: {
       type: String,
@@ -49,6 +50,11 @@ UsersSchema.pre('save', async function (next) {
   this.confirmedPassword = undefined
   next()
 })
+
+UsersSchema.methods.validatePassword = async (
+  candidatePassword,
+  userPassword
+) => await bcrypt.compare(candidatePassword, userPassword)
 
 UsersSchema.virtual('posts', {
   ref: 'post',

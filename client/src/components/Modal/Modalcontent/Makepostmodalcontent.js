@@ -36,6 +36,7 @@ const MakePostContent = () => {
 
   const handleFileUpload = e => {
     const imageFile = e.target.files[0]
+    if (!imageFile) return
     imageFile.id = Date.now()
     e.target.files &&
       e.target.files[0] &&
@@ -55,7 +56,9 @@ const MakePostContent = () => {
   const handleSubmit = e => {
     e.preventDefault()
     const data = new FormData()
-    Object.keys(createPost).map(k => data.append([k], createPost[k]))
+    const postData = { ...createPost }
+    delete postData.postImagesPreview
+    Object.keys(postData).map(k => data.append(k, postData[k]))
     dispatch(handlePostCreation(data))
   }
 
@@ -92,6 +95,7 @@ const MakePostContent = () => {
                   className={M.inputFile}
                   name='postImages'
                   onChange={handleFileUpload}
+                  multiple
                 />
                 <label
                   htmlFor='postImage'

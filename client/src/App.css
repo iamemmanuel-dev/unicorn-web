@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 *,
 *::after,
@@ -10,7 +10,7 @@
 }
 
 :root {
-  --primary_font: 'Noto Sans', sans-serif;
+  --primary_font: 'Lato', sans-serif;
   --secondary_font: 'Nunito', sans-serif;
 
   --main_blue: #1da1f2;

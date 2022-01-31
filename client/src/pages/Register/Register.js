@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 import R from './register.module.css'
-import { printOptions } from '../../Helpers'
+import { printOptions } from '../../Helpers/axiosHelper'
 
 const Register = props => {
   const [authCredentials, setAuthCredentials] = useState({
@@ -13,8 +13,8 @@ const Register = props => {
   const [isSignup, setisSignUp] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState({ isError: false, errMsg: '' })
-  const handleFormChange = () => setisSignUp(!isSignup)
 
+  const handleFormChange = () => setisSignUp(!isSignup)
   const handleChange = ({ target: { name, value } }) =>
     setAuthCredentials({ ...authCredentials, [name]: value })
 
@@ -28,17 +28,40 @@ const Register = props => {
           errMsg: 'Passwords do not match. Please verify credentials',
         })
 
-      setIsLoading(true)
-      const res = await axios(
-        printOptions('POST', '/api/signup', authCredentials)
-      )
-      const {
-        status,
-        user: { _id, username },
-      } = res.data
+      try {
+        setIsLoading(true)
+        const res = await axios(
+          printOptions('POST', '/api/signup', authCredentials)
+        )
+        const {
+          status,
+          user: { _id, username },
+        } = res.data
 
-      status === 'success' &&
-        props.history.replace(`/success/userconfig/${username}/${_id}`)
+        status === 'success' &&
+          props.history.replace(`/success/userconfig/${username}/${_id}`)
+      } catch (err) {
+        setIsLoading(false)
+        setError({ ...error, isError: true, errMsg: 'Something went wrong!' })
+      }
+    } else {
+      try {
+        setIsLoading(true)
+        const { username, password } = authCredentials
+        const res = await axios(
+          printOptions('POST', '/api/login', { username, password })
+        )
+
+        const { status } = res.data
+        status === 'success' && window.location.replace('/')
+      } catch (err) {
+        setIsLoading(false)
+        setError({
+          ...error,
+          isError: true,
+          errMsg: 'Invalid username or password',
+        })
+      }
     }
   }
 
@@ -114,7 +137,11 @@ const Register = props => {
               )}
 
               <div className={R.form_group}>
-                <button className={R.signBtn}>
+                <button
+                  className={R.signBtn}
+                  disabled={isLoading}
+                  style={{ cursor: isLoading ? 'not-allowed' : 'pointer' }}
+                >
                   {isLoading ? (
                     <img
                       src='/images/loading3.gif'

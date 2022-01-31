@@ -1,0 +1,49 @@
+#loadingPage {
+  height: 100vh;
+}
+
+#loadingPage,
+.loadingPage_content {
+  display: grid;
+  place-items: center;
+}
+
+#loadingPage img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.loadingPage_content_logoContainer {
+  width: 15rem;
+}
+
+.loadingPage_content_spinnerContainer {
+  width: 20rem;
+  margin-top: -5rem;
+}
+
+.errorContainer {
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.errorContainer h3 {
+  text-align: left;
+}
+
+.errorContainer a {
+  display: inline-block;
+  text-align: center;
+  color: inherit;
+  margin-top: 1.5rem;
+  font-size: 1.6rem;
+  padding: 0.5rem 1.5rem;
+  background: var(--main_blue);
+  border-radius: 10rem;
+  transition: var(--transition);
+}
+
+.errorContainer a:hover {
+  background: #1586cc;
+}
